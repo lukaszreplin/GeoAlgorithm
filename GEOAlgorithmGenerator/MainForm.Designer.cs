@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.fromTb = new System.Windows.Forms.TextBox();
@@ -39,7 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.precisionCb = new System.Windows.Forms.ComboBox();
-            this.chart = new LiveCharts.WinForms.CartesianChart();
             this.xrTb = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.xbTb = new System.Windows.Forms.TextBox();
@@ -48,6 +50,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.iterationTb = new System.Windows.Forms.TextBox();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -152,14 +156,6 @@
             this.precisionCb.Size = new System.Drawing.Size(132, 28);
             this.precisionCb.TabIndex = 12;
             // 
-            // chart
-            // 
-            this.chart.Location = new System.Drawing.Point(16, 48);
-            this.chart.Name = "chart";
-            this.chart.Size = new System.Drawing.Size(1149, 526);
-            this.chart.TabIndex = 13;
-            this.chart.Text = "cartesianChart1";
-            // 
             // xrTb
             // 
             this.xrTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -232,11 +228,28 @@
             this.iterationTb.Size = new System.Drawing.Size(58, 26);
             this.iterationTb.TabIndex = 21;
             // 
+            // chart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
+            this.chart.Location = new System.Drawing.Point(16, 38);
+            this.chart.Name = "chart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
+            this.chart.Size = new System.Drawing.Size(1149, 539);
+            this.chart.TabIndex = 22;
+            this.chart.Text = "chart1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 653);
+            this.Controls.Add(this.chart);
             this.Controls.Add(this.iterationTb);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.fxTb);
@@ -245,7 +258,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.xrTb);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.chart);
             this.Controls.Add(this.precisionCb);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.tauTb);
@@ -259,6 +271,7 @@
             this.Controls.Add(this.label1);
             this.Name = "MainForm";
             this.Text = "GEO Algorithm Calculator";
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +290,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button startButton;
         public System.Windows.Forms.ComboBox precisionCb;
-        private LiveCharts.WinForms.CartesianChart chart;
         private System.Windows.Forms.TextBox xrTb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox xbTb;
@@ -286,6 +298,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox iterationTb;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
     }
 }
 

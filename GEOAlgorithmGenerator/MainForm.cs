@@ -24,31 +24,47 @@ namespace GEOAlgorithmGenerator
             precisionCb.SelectedIndex = 0;
             iterationsTb.Text = "2000";
             tauTb.Text = "2";
+            var ser = new System.Windows.Forms.DataVisualization.Charting.Series();
+            ser.Name = "Best";
+            ser.ChartType = SeriesChartType.Line;
+            chart.Series.Add(ser);
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
             Algorithm algorithm = new Algorithm(precisionCb.SelectedItem.ToString(), fromTb.Text, toTb.Text, tauTb.Text);
             var results = algorithm.Start(int.Parse(iterationsTb.Text));
-            var resValues = new ChartValues<double>();
-            var bestValues = new ChartValues<double>();
-            resValues.AddRange(results.FXs);
-            bestValues.AddRange(results.Bests);
+            //var resValues = new ChartValues<double>();
+            //var bestValues = new ChartValues<double>();
+            //resValues.AddRange(results.FXs);
+            //bestValues.AddRange(results.Bests);
             xrTb.Text = results.XRealBest.ToString();
             xbTb.Text = results.XBinBest;
             fxTb.Text = results.FXBest.ToString();
             iterationTb.Text = results.Iteration.ToString();
-            chart.Series = new LiveCharts.SeriesCollection
+            foreach (var sss in chart.Series)
             {
-                new LineSeries
-                {
-                    Values = resValues
-                },
-                new LineSeries
-                {
-                    Values = bestValues
-                }
-            };
+                sss.Points.Clear();
+            }
+            //chart.Series = new LiveCharts.SeriesCollection
+            //{
+            //    new LineSeries
+            //    {
+            //        Values = resValues
+            //    },
+            //    new LineSeries
+            //    {
+            //        Values = bestValues
+            //    }
+            //};
+           
+            chart.Series[0].ChartType = SeriesChartType.Line;
+            chart.Series[0].Name = "Results";
+            for (int i = 0; i < results.FXs.Count; i++)
+            {
+                chart.Series["Results"].Points.AddXY(i + 1, results.FXs[i]);
+                chart.Series["Best"].Points.AddXY(i + 1, results.Bests[i]);
+            }
         }
     }
 }
