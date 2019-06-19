@@ -51,6 +51,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.iterationTb = new System.Windows.Forms.TextBox();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.statusLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,11 +245,21 @@
             this.chart.TabIndex = 22;
             this.chart.Text = "chart1";
             // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.statusLabel.Location = new System.Drawing.Point(794, 8);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(0, 24);
+            this.statusLabel.TabIndex = 23;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1177, 653);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.chart);
             this.Controls.Add(this.iterationTb);
             this.Controls.Add(this.label9);
@@ -299,6 +310,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox iterationTb;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.Label statusLabel;
     }
 }
 

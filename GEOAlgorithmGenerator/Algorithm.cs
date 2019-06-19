@@ -12,7 +12,7 @@ namespace GEOAlgorithmGenerator
         public string Precision { get; set; }
         public string From { get; set; }
         public string To { get; set; }
-        public int Tau { get; set; }
+        public float Tau { get; set; }
         public int Size { get; set; }
         public Random Randomizer { get; set; }
 
@@ -37,7 +37,7 @@ namespace GEOAlgorithmGenerator
             Precision = precision;
             From = from;
             To = to;
-            Tau = int.Parse(tau);
+            Tau = float.Parse(tau);
             Size = Calculations.GetL(Precision, float.Parse(From), float.Parse(To));
             Randomizer = new Random();
             Individual = new Individual()
